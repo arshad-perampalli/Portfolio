@@ -167,8 +167,8 @@ a, a:hover, a:focus {
     button:hover{transform:translateY(-3px)}
 
     footer{text-align:center;color:var(--muted);padding:40px 0}
-    /* Mobile Responsive Styles */
-
+    
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .container { padding: 16px; }
   
@@ -217,14 +217,6 @@ a, a:hover, a:focus {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-  @media (max-width: 480px) {
-  .container { padding: 12px; }
-  
-  .nav { 
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     gap: 16px;
   }
   
@@ -245,6 +237,7 @@ a, a:hover, a:focus {
   
   #contact { padding: 16px; }
 }
+
 
 .hamburger {
   display: flex;
@@ -339,12 +332,12 @@ a, a:hover, a:focus {
     <section class="hero">
       <div>
         <div class="card">
-          <h1>Hi — I’m Arshad.</h1>
+          <h1>About</h1>
           <section class="hero" id="about">
   <div>
     <div class="card">
       <h1>Hi — I'm Arshad.</h1>
-      <p class="subtitle">AI & Data Science student building ML solutions, real-time web apps, and practical tools. I enjoy turning data into actionable systems and building clean front-end experiences.</p>
+      <p class="subtitle">AI & Data Science student building ML solutions, real-time web apps, and practical tools. I want to begin my career in a company where I can use my programming and problem-solving skills to solve real problems. My goal is to keep learning new technologies and grow along with the organization.</p>
 
       <div class="section-title"><h3 id="skills">Key skills</h3></div>
           <div class="skills">
@@ -513,7 +506,7 @@ a, a:hover, a:focus {
     </section>
 
 <!-- Contact Section -->
-<!-- Contact Section -->
+
 <section id="contact" style="margin-top:40px;background:#f3f4f6;padding:32px;border-radius:12px">
   <h2 style="color: #000;font-size:26px;font-weight:700;margin-bottom:8px">Contact Me</h2>
   <div style="width:60px;height:3px;background:#0b66f6;margin-bottom:22px"></div>
@@ -541,13 +534,16 @@ a, a:hover, a:focus {
 
   <script>
   // Smooth scroll for internal links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      const t = document.querySelector(this.getAttribute('href'));
-      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-    })
-  });
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    const t = document.querySelector(this.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'center'});
+  })
+});
+
+
 
   function toggleMenu() {
     const menu = document.querySelector('.mobile-menu');
@@ -590,6 +586,3 @@ a, a:hover, a:focus {
 
 </body>
 </html>
-
-
-
