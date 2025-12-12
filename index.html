@@ -1,4 +1,4 @@
-
+<!-- Professional Dark Mode Portfolio (Text + Links preserved exactly) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -240,31 +240,103 @@ a, a:hover, a:focus {
   
   #contact { padding: 16px; }
 }
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(15, 12, 41, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding: 20px;
+}
+
+.mobile-menu ul {
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-menu.show {
+  display: block;
+}
+
+/* Hide desktop nav on scroll */
+.nav.scrolled nav {
+  display: none;
+}
+
+.nav.scrolled .hamburger {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+}
+
 
   </style>
 </head>
 <body>
     <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">AP</div>
-        <div>
-          <div style="font-weight:700">Arshad Perampalli</div>
-          <div style="font-size:12px;color:var(--muted)">AI & Data Science • Web Developer</div>
-        </div>
+  <div class="container nav" id="navbar">
+    <div class="brand">
+      <div class="logo">AP</div>
+      <div>
+        <div style="font-weight:700">Arshad Perampalli</div>
+        <div style="font-size:12px;color:var(--muted)">AI & Data Science • Web Developer</div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-        </ul>
-      </nav>
-      <a class="cta" href="#contact">Contact Me</a>
     </div>
-  </header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <a class="cta" href="#contact">Contact Me</a>
+    
+    <div class="mobile-menu" id="mobile-menu">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
 
   <main class="container">
     <!-- HERO -->
@@ -503,8 +575,33 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     alert('Error sending message. Please try again.');
   });
 });
+// Hamburger menu and scroll detection
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+// Toggle mobile menu
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('show');
+});
+
+// Hide menu when clicking on links
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('show');
+  });
+});
+
+// Show hamburger on scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+    mobileMenu.classList.remove('show');
+  }
+});
 
   </script>
 </body>
 </html>
-
