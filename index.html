@@ -534,14 +534,19 @@ a, a:hover, a:focus {
 
   <script>
   // Smooth scroll for internal links
-// Smooth scroll for internal links
+
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', function(e){
     e.preventDefault();
     const t = document.querySelector(this.getAttribute('href'));
-    if(t) t.scrollIntoView({behavior:'smooth',block:'center'});
+    if(t) {
+      const isMobile = window.innerWidth <= 768;
+      const block = isMobile ? 'start' : 'center';
+      t.scrollIntoView({behavior:'smooth', block: block});
+    }
   })
 });
+
 
 
 
