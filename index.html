@@ -240,287 +240,65 @@ a, a:hover, a:focus {
   
   #contact { padding: 16px; }
 }
-/* Hamburger Menu Styles */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.1);
-  transition: all 0.3s ease;
-}
-
-.hamburger:hover {
-  background: rgba(255,255,255,0.2);
-  transform: scale(1.05);
+  gap: 4px;
 }
 
 .hamburger span {
-  width: 24px;
-  height: 2px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  margin: 2px 0;
-  transition: all 0.3s ease;
+  width: 25px;
+  height: 3px;
+  background: linear-gradient(135deg,var(--accent),var(--accent2));
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(255,78,189,0.3);
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transition: 0.3s;
 }
 
 .mobile-menu {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: linear-gradient(135deg, rgba(15,12,41,0.98), rgba(48,43,99,0.95));
-  backdrop-filter: blur(25px);
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding: 25px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  animation: slideDown 0.3s ease;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255,255,255,0.15);
 }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.mobile-menu.active {
+  display: block;
 }
 
 .mobile-menu ul {
+  display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0;
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .mobile-menu a {
   display: block;
-  padding: 12px 20px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.15);
-  transition: all 0.3s ease;
+  padding: 16px 22px;
+  color: white;
+  text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
 }
 
 .mobile-menu a:hover {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  transform: translateX(10px);
-  box-shadow: 0 5px 20px rgba(255,78,189,0.4);
+  background: rgba(255,78,189,0.1);
+  color: var(--accent2);
 }
-
-.mobile-menu.show {
-  display: block;
-}
-
-/* Navbar scroll behavior */
-.nav.scrolled {
-  padding: 12px 22px;
-  background: rgba(15,12,41,0.95);
-}
-
-.nav.scrolled .brand {
-  transform: scale(0.9);
-}
-
-.nav.scrolled nav {
-  display: none;
-}
-
-.nav.scrolled .hamburger {
-  display: flex;
-}
-
-.nav.scrolled .cta {
-  padding: 8px 16px;
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: row !important;
-    gap: 0 !important;
-  }
-  
-  nav {
-    display: none;
-  }
-  
-  .hamburger {
-    display: flex;
-  }
-}
-/* Hamburger Menu Styles */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.1);
-  transition: all 0.3s ease;
-}
-
-.hamburger:hover {
-  background: rgba(255,255,255,0.2);
-  transform: scale(1.05);
-}
-
-.hamburger span {
-  width: 24px;
-  height: 2px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  margin: 2px 0;
-  transition: all 0.3s ease;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(255,78,189,0.3);
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-.mobile-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: linear-gradient(135deg, rgba(15,12,41,0.98), rgba(48,43,99,0.95));
-  backdrop-filter: blur(25px);
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding: 25px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.mobile-menu ul {
-  flex-direction: column;
-  gap: 20px;
-  list-style: none;
-}
-
-.mobile-menu a {
-  display: block;
-  padding: 12px 20px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.15);
-  transition: all 0.3s ease;
-  font-weight: 600;
-}
-
-.mobile-menu a:hover {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  transform: translateX(10px);
-  box-shadow: 0 5px 20px rgba(255,78,189,0.4);
-}
-
-.mobile-menu.show {
-  display: block;
-}
-
-/* Ensure proper flex order - FIXED */
-.nav .brand {
-  order: 1;
-}
-
-.nav nav {
-  order: 2;
-}
-
-.nav .hamburger {
-  order: 4; /* Move hamburger after CTA */
-}
-
-.nav .cta {
-  order: 3; /* Keep CTA before hamburger */
-}
-
-/* Navbar scroll behavior - FIXED */
-.nav.scrolled .hamburger {
-  display: flex;
-  order: 4; /* Keep hamburger on far right when scrolled */
-}
-
-.nav.scrolled .cta {
-  padding: 6px 14px;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  order: 3; /* Keep CTA before hamburger */
-}
-
-
-.nav.scrolled .cta {
-  padding: 6px 14px;
-  font-size: 13px;
-  transition: all 0.3s ease;
-  order: 3; /* Keep CTA on the far right */
-}
-
-/* Ensure proper flex order */
-.nav .brand {
-  order: 1;
-}
-
-.nav nav {
-  order: 2;
-}
-
-.nav .hamburger {
-  order: 2;
-}
-
-.nav .cta {
-  order: 3;
-}
-
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: row !important;
-    gap: 0 !important;
-  }
-  
-  nav {
-    display: none !important;
-  }
-  
-  .hamburger {
-    display: flex !important;
-  }
-}
-
-
-
 
   </style>
+</head>
+<body>
+    <!-- Replace the header section with this: -->
 <header>
-  <div class="container nav" id="navbar">
+  <div class="container nav">
     <div class="brand">
       <div class="logo">AP</div>
       <div>
@@ -528,34 +306,26 @@ a, a:hover, a:focus {
         <div style="font-size:12px;color:var(--muted)">AI & Data Science • Web Developer</div>
       </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <a class="cta" href="#contact">Contact Me</a>
     
-    <div class="mobile-menu" id="mobile-menu">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-      </ul>
+    <a class="cta" href="#contact">Contact</a>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
+  
+  <nav class="mobile-menu">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+    </ul>
+  </nav>
 </header>
-
 
 
   <main class="container">
@@ -737,13 +507,12 @@ a, a:hover, a:focus {
   <h2 style="color: #000;font-size:26px;font-weight:700;margin-bottom:8px">Contact Me</h2>
   <div style="width:60px;height:3px;background:#0b66f6;margin-bottom:22px"></div>
 
-  <form id="contact-form" style="display:flex;flex-direction:column;gap:14px;max-width:600px">
-  <input type="text" name="name" placeholder="Your Name" style="padding:12px;border-radius:8px;border:1px solid #000000;font-size:15px" required>
-  <input type="email" name="email" placeholder="Your Email" style="padding:12px;border-radius:8px;border:1px solid #000000;font-size:15px" required>
-  <textarea name="message" placeholder="Your Message" rows="6" style="padding:12px;border-radius:8px;border:1px solid #000000;font-size:15px" required></textarea>
-  <button type="submit" style="padding:12px 20px;background:#0b66f6;color:white;border:none;border-radius:8px;font-weight:600;font-size:15px;width:150px">Send Message</button>
-</form>
-
+  <form style="display:flex;flex-direction:column;gap:14px;max-width:600px">
+    <input type="text" placeholder="Your Name" style="padding:12px;border-radius:8px;border:1px solid #000000;font-size:15px" required>
+    <input type="email" placeholder="Your Email" style="padding:12px;border-radius:8px;border:1px solid #000000;font-size:15px" required>
+    <textarea placeholder="Your Message" rows="6" style="padding:12px;border-radius:8px;border:1px solid #000000;font-size:15px" required></textarea>
+    <button type="submit" style="padding:12px 20px;background:#0b66f6;color:white;border:none;border-radius:8px;font-weight:600;font-size:15px;width:150px">Send Message</button>
+  </form>
 </section>
 
 <footer>
@@ -766,75 +535,18 @@ a, a:hover, a:focus {
         if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
       })
     });
-    // Contact form handling
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const formData = new FormData(this);
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const message = formData.get('message');
-  
-  // Using Formspree (free service)
-  fetch('https://formspree.io/f/mzznyzrg', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json'
-    },
-    body: formData
-  })
-  .then(response => {
-    if (response.ok) {
-      alert('Message sent successfully!');
-      this.reset();
-    } else {
-      alert('Error sending message. Please try again.');
-    }
-  })
-  .catch(error => {
-    alert('Error sending message. Please try again.');
+    function toggleMenu() {
+  const menu = document.querySelector('.mobile-menu');
+  menu.classList.toggle('active');
+}
+// Add this to your existing script section
+document.querySelectorAll('.mobile-menu a').forEach(a => {
+  a.addEventListener('click', function() {
+    document.querySelector('.mobile-menu').classList.remove('active');
   });
 });
-// Hamburger menu and scroll detection
-const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-
-// Toggle mobile menu
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  mobileMenu.classList.toggle('show');
-});
-
-// Hide menu when clicking on links
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    mobileMenu.classList.remove('show');
-  });
-});
-
-// Show hamburger on scroll with smooth animation
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-    hamburger.classList.remove('active');
-    mobileMenu.classList.remove('show');
-  }
-});
-
-// Smooth scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    e.preventDefault();
-    const t = document.querySelector(this.getAttribute('href'));
-    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-  })
-});
-
 
   </script>
+
 </body>
 </html>
