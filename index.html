@@ -245,15 +245,37 @@ a, a:hover, a:focus {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
 }
 
 .hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  margin: 3px 0;
-  transition: 0.3s;
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255,78,189,0.3);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .mobile-menu {
@@ -262,22 +284,55 @@ a, a:hover, a:focus {
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(15, 12, 41, 0.95);
-  backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255,255,255,0.15);
-  padding: 20px;
+  background: linear-gradient(135deg, rgba(15,12,41,0.98), rgba(48,43,99,0.95));
+  backdrop-filter: blur(25px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .mobile-menu ul {
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.mobile-menu a:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(255,78,189,0.4);
 }
 
 .mobile-menu.show {
   display: block;
 }
 
-/* Hide desktop nav on scroll */
+/* Navbar scroll behavior */
+.nav.scrolled {
+  padding: 12px 22px;
+  background: rgba(15,12,41,0.95);
+}
+
+.nav.scrolled .brand {
+  transform: scale(0.9);
+}
+
 .nav.scrolled nav {
   display: none;
 }
@@ -286,7 +341,17 @@ a, a:hover, a:focus {
   display: flex;
 }
 
+.nav.scrolled .cta {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
+  .nav {
+    flex-direction: row !important;
+    gap: 0 !important;
+  }
+  
   nav {
     display: none;
   }
@@ -295,12 +360,166 @@ a, a:hover, a:focus {
     display: flex;
   }
 }
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255,78,189,0.3);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, rgba(15,12,41,0.98), rgba(48,43,99,0.95));
+  backdrop-filter: blur(25px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu ul {
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.mobile-menu a:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(255,78,189,0.4);
+}
+
+.mobile-menu.show {
+  display: block;
+}
+
+/* Ensure proper flex order - FIXED */
+.nav .brand {
+  order: 1;
+}
+
+.nav nav {
+  order: 2;
+}
+
+.nav .hamburger {
+  order: 4; /* Move hamburger after CTA */
+}
+
+.nav .cta {
+  order: 3; /* Keep CTA before hamburger */
+}
+
+/* Navbar scroll behavior - FIXED */
+.nav.scrolled .hamburger {
+  display: flex;
+  order: 4; /* Keep hamburger on far right when scrolled */
+}
+
+.nav.scrolled .cta {
+  padding: 6px 14px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  order: 3; /* Keep CTA before hamburger */
+}
+
+
+.nav.scrolled .cta {
+  padding: 6px 14px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  order: 3; /* Keep CTA on the far right */
+}
+
+/* Ensure proper flex order */
+.nav .brand {
+  order: 1;
+}
+
+.nav nav {
+  order: 2;
+}
+
+.nav .hamburger {
+  order: 2;
+}
+
+.nav .cta {
+  order: 3;
+}
+
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: row !important;
+    gap: 0 !important;
+  }
+  
+  nav {
+    display: none !important;
+  }
+  
+  .hamburger {
+    display: flex !important;
+  }
+}
+
+
 
 
   </style>
-</head>
-<body>
-    <header>
+<header>
   <div class="container nav" id="navbar">
     <div class="brand">
       <div class="logo">AP</div>
@@ -336,6 +555,7 @@ a, a:hover, a:focus {
     </div>
   </div>
 </header>
+
 
 
   <main class="container">
@@ -582,25 +802,38 @@ const mobileMenu = document.getElementById('mobile-menu');
 
 // Toggle mobile menu
 hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('show');
 });
 
 // Hide menu when clicking on links
 document.querySelectorAll('.mobile-menu a').forEach(link => {
   link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
     mobileMenu.classList.remove('show');
   });
 });
 
-// Show hamburger on scroll
+// Show hamburger on scroll with smooth animation
 window.addEventListener('scroll', () => {
   if (window.scrollY > 100) {
     navbar.classList.add('scrolled');
   } else {
     navbar.classList.remove('scrolled');
+    hamburger.classList.remove('active');
     mobileMenu.classList.remove('show');
   }
 });
+
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    const t = document.querySelector(this.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  })
+});
+
 
   </script>
 </body>
